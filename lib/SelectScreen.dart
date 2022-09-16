@@ -9,6 +9,7 @@ class SelectScreen extends StatefulWidget {
 
 class _SelectScreenState extends State<SelectScreen> {
   bool checkValue = true;
+  int noOfQuestions = 5;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,119 +32,423 @@ class _SelectScreenState extends State<SelectScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 170,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('Option 1',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                GestureDetector(
+                  child: Container(
+                    width: 170,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: (noOfQuestions == 5) ? Colors.greenAccent : Colors.grey[900],
                     ),
-                    ),
-                  ),
-                ),
-                // const SizedBox(width: 20,),
-                Container(
-                  width: 170,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('Option 2',
+                    child: const Center(
+                      child: Text('5',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
+                      ),
                       ),
                     ),
                   ),
-                )
+                  onTap: (){
+                    noOfQuestions = 5;
+                    setState(() {
+
+                    });
+                  },
+                ),
+                // const SizedBox(width: 20,),
+                GestureDetector(
+                  child: Container(
+                    width: 170,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: (noOfQuestions == 10) ? Colors.greenAccent : Colors.grey[900],
+                    ),
+                    child: const Center(
+                      child: Text('10',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  onTap: (){
+                    noOfQuestions = 10;
+                    setState(() {
+
+                    });
+                  },
+                ),
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 170,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('Option 3',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  child: Container(
+                    width: 170,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: (noOfQuestions == 15) ? Colors.greenAccent : Colors.grey[900],
+                    ),
+                    child: const Center(
+                      child: Text('15',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
+                  onTap: (){
+                    noOfQuestions = 15;
+                    setState(() {
+
+                    });
+                  },
                 ),
-                // const SizedBox(width: 20,),
-                Container(
-                  width: 170,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('Option 4',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  child: Container(
+                    width: 170,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: (noOfQuestions == 20) ? Colors.greenAccent : Colors.grey[900],
+                    ),
+                    child: const Center(
+                      child: Text('20',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                )
+                  onTap: (){
+                    noOfQuestions = 20;
+                    setState(() {
+
+                    });
+                  },
+                ),
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             const Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: Text('CATEGORIES',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+              child: Text('CATEGORIES',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
 
-                  ),),
-              ),
+                ),),
             ),
             const SizedBox(height: 30,),
             Row(
               children: [
+                SizedBox(width: 20,),
                 Container(
-                  height: 20,
-                  width: 200,
                   decoration: BoxDecoration(
-                    color: Colors.greenAccent
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.lime,
                   ),
-                  child: CheckboxListTile(
-                    title: Text("fsf text"),
-                    value: checkValue,
-                    onChanged: (newValue) {
-                    setState(() {
-                      checkValue = !checkValue;
-                    });
-                    },
-                    controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
-                    ),
-
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "Science ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
                   ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.brown,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "General Knowledge ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.green,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 0.9,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "Maths ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
               ],
+            ),
+
+            const SizedBox(height: 20,),
+            Row(
+              children: [
+                SizedBox(width: 20,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurpleAccent,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "Brain Storming  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.pink,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "IT  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.teal,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 0.9,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "History  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 20,),
+            Row(
+              children: [
+                SizedBox(width: 20,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepOrange,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "Arts  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.greenAccent,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "Economics  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.lightBlue,
+                  ),
+                  child: Row(
+                    children: [
+                      Transform.scale(
+                        scale: 0.9,
+                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                          setState(() {
+                            checkValue = !checkValue;
+                          });
+                        }),
+                      ),
+                      const Text(
+                        "English  ",
+                        style: TextStyle(fontSize: 14.0, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(height: 30,),
+            const Center(
+              child: Text('LEVEL OF QUESTIONS',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+
+                ),),
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  width: 120,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[900],
+                  ),
+                  child: const Center(
+                    child: Text('E A S Y',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 120,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[900],
+                  ),
+                  child: const Center(
+                    child: Text('M E D I U M',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+
+                Container(
+                  width: 120,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[900],
+                  ),
+                  child: const Center(
+                    child: Text('H A R D',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 10,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red, // background
+                onPrimary: Colors.white, // foreground
+              ),
+              onPressed: () { },
+              child: Text('GET STARTED'),
             )
+
           ],
         ),
       ),
