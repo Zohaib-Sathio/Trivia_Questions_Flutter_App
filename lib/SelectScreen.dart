@@ -28,7 +28,7 @@ class _SelectScreenState extends State<SelectScreen> {
                 ),),
               ),
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -85,7 +85,7 @@ class _SelectScreenState extends State<SelectScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -141,7 +141,7 @@ class _SelectScreenState extends State<SelectScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             const Center(
               child: Text('CATEGORIES',
                 style: TextStyle(
@@ -153,7 +153,7 @@ class _SelectScreenState extends State<SelectScreen> {
             const SizedBox(height: 30,),
             Row(
               children: [
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -163,7 +163,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -176,7 +176,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -186,7 +186,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -199,7 +199,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -209,7 +209,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 0.9,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -228,7 +228,7 @@ class _SelectScreenState extends State<SelectScreen> {
             const SizedBox(height: 20,),
             Row(
               children: [
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -238,7 +238,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -251,7 +251,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -261,7 +261,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -274,7 +274,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -284,7 +284,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 0.9,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -303,7 +303,7 @@ class _SelectScreenState extends State<SelectScreen> {
             const SizedBox(height: 20,),
             Row(
               children: [
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -313,7 +313,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -326,7 +326,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -336,7 +336,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 1.2,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -349,7 +349,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     ],
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -359,7 +359,7 @@ class _SelectScreenState extends State<SelectScreen> {
                     children: [
                       Transform.scale(
                         scale: 0.9,
-                        child: Checkbox(value: checkValue, side: BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
+                        child: Checkbox(value: checkValue, side: const BorderSide(color: Color(0xffFFFFFF)) ,onChanged: (value) {
                           setState(() {
                             checkValue = !checkValue;
                           });
@@ -375,7 +375,7 @@ class _SelectScreenState extends State<SelectScreen> {
               ],
             ),
 
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             const Center(
               child: Text('LEVEL OF QUESTIONS',
                 style: TextStyle(
@@ -384,7 +384,7 @@ class _SelectScreenState extends State<SelectScreen> {
 
                 ),),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -396,8 +396,9 @@ class _SelectScreenState extends State<SelectScreen> {
                     color: Colors.grey[900],
                   ),
                   child: const Center(
-                    child: Text('E A S Y',
+                    child: Text('EASY',
                       style: TextStyle(
+                        letterSpacing: 2,
                         color: Colors.white,
                         fontSize: 16,
                       ),
@@ -412,8 +413,9 @@ class _SelectScreenState extends State<SelectScreen> {
                     color: Colors.grey[900],
                   ),
                   child: const Center(
-                    child: Text('M E D I U M',
+                    child: Text('MEDIUM',
                       style: TextStyle(
+                        letterSpacing: 2,
                         color: Colors.white,
                         fontSize: 16,
                       ),
@@ -429,8 +431,9 @@ class _SelectScreenState extends State<SelectScreen> {
                     color: Colors.grey[900],
                   ),
                   child: const Center(
-                    child: Text('H A R D',
+                    child: Text('HARD',
                       style: TextStyle(
+                        letterSpacing: 2,
                         color: Colors.white,
                         fontSize: 16,
                       ),
@@ -439,14 +442,14 @@ class _SelectScreenState extends State<SelectScreen> {
                 )
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.red, // background
                 onPrimary: Colors.white, // foreground
               ),
               onPressed: () { },
-              child: Text('GET STARTED'),
+              child: const Text('GET STARTED'),
             )
 
           ],
