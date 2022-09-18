@@ -33,6 +33,7 @@ class ResultScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(250),
+                        gradient: const LinearGradient(colors: Colors.primaries)
                     ),
                     height: 250,
                     width: 250,
@@ -46,7 +47,7 @@ class ResultScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 58,
                         fontWeight: FontWeight.bold,
-                        color: Colors.yellow,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -114,7 +115,7 @@ class ResultScreen extends StatelessWidget {
               height: 60,
               width: size.width * 0.66,
               decoration: const BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.3)
+                color: Color.fromRGBO(255, 255, 255, 0.3),
               ),
               child: const Center(
                 child: Text(

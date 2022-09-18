@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'customWidgets/questionButton.dart';
+
 class SelectScreen extends StatefulWidget {
   const SelectScreen({Key? key}) : super(key: key);
 
@@ -9,7 +11,64 @@ class SelectScreen extends StatefulWidget {
 
 class _SelectScreenState extends State<SelectScreen> {
   bool checkValue = true;
-  int noOfQuestions = 5;
+  int noOfQuestion = 5;
+
+  bool foodDrink = false;
+  bool artLiterature = false;
+  bool music = false;
+  bool science = false;
+  bool geography = false;
+  bool isSelected = true;
+  bool isSelected2 = true;
+
+  startQuiz(){
+    int count = 0;
+    String apiString = 'https://the-trivia-api.com/api/questions?limit=$selected&difficulty=$diffLevel';
+    if(foodDrink || artLiterature || music || science || geography){
+      apiString = '$apiString&categories=';
+      if(foodDrink){
+        count++;
+        apiString = '${apiString}food_and_drink';
+      }
+      if(artLiterature){
+        if(count > 0){
+          apiString = '$apiString,';
+        }
+        count++;
+        apiString = '${apiString}arts_and_literature';
+      }
+      if(music){
+        if(count > 0){
+          apiString = '$apiString,';
+        }
+        count++;
+        apiString = '${apiString}music';
+      }
+      if(science){
+        if(count > 0){
+          apiString = '$apiString,';
+        }
+        count++;
+        apiString = '${apiString}science';
+      }
+      if(geography){
+        if(count > 0){
+          apiString = '$apiString,';
+        }
+        count++;
+        apiString = '${apiString}geography';
+      }
+    }
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'apiString' : apiString,
+      'questionsNo': selected,
+    });
+
+  }
+
+  int selected = 5;
+  String diffLevel = "easy";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,25 +92,9 @@ class _SelectScreenState extends State<SelectScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
-                  child: Container(
-                    width: 170,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (noOfQuestions == 5) ? Colors.greenAccent : Colors.grey[900],
-                    ),
-                    child: const Center(
-                      child: Text('5',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      ),
-                    ),
-                  ),
+                  child: buttonContainer(5, noOfQuestion),
                   onTap: (){
-                    noOfQuestions = 5;
+                    noOfQuestion = 5;
                     setState(() {
 
                     });
@@ -59,25 +102,9 @@ class _SelectScreenState extends State<SelectScreen> {
                 ),
                 // const SizedBox(width: 20,),
                 GestureDetector(
-                  child: Container(
-                    width: 170,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (noOfQuestions == 10) ? Colors.greenAccent : Colors.grey[900],
-                    ),
-                    child: const Center(
-                      child: Text('10',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: buttonContainer(10, noOfQuestion),
                   onTap: (){
-                    noOfQuestions = 10;
+                    noOfQuestion = 10;
                     setState(() {
 
                     });
@@ -90,50 +117,18 @@ class _SelectScreenState extends State<SelectScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
-                  child: Container(
-                    width: 170,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (noOfQuestions == 15) ? Colors.greenAccent : Colors.grey[900],
-                    ),
-                    child: const Center(
-                      child: Text('15',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: buttonContainer(15, noOfQuestion),
                   onTap: (){
-                    noOfQuestions = 15;
+                    noOfQuestion = 15;
                     setState(() {
 
                     });
                   },
                 ),
                 GestureDetector(
-                  child: Container(
-                    width: 170,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (noOfQuestions == 20) ? Colors.greenAccent : Colors.grey[900],
-                    ),
-                    child: const Center(
-                      child: Text('20',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: buttonContainer(20, noOfQuestion),
                   onTap: (){
-                    noOfQuestions = 20;
+                    noOfQuestion = 20;
                     setState(() {
 
                     });
@@ -374,7 +369,6 @@ class _SelectScreenState extends State<SelectScreen> {
                 ),
               ],
             ),
-
             const SizedBox(height: 30,),
             const Center(
               child: Text('LEVEL OF QUESTIONS',
@@ -388,58 +382,9 @@ class _SelectScreenState extends State<SelectScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 120,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('EASY',
-                      style: TextStyle(
-                        letterSpacing: 2,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 120,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('MEDIUM',
-                      style: TextStyle(
-                        letterSpacing: 2,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-
-                Container(
-                  width: 120,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[900],
-                  ),
-                  child: const Center(
-                    child: Text('HARD',
-                      style: TextStyle(
-                        letterSpacing: 2,
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                )
+                difficulty('EASY'),
+                difficulty('MEDIUM'),
+                difficulty('HARD')
               ],
             ),
             const SizedBox(height: 10,),
@@ -451,10 +396,50 @@ class _SelectScreenState extends State<SelectScreen> {
               onPressed: () { },
               child: const Text('GET STARTED'),
             )
-
           ],
         ),
       ),
     );
   }
 }
+
+Widget buttonContainer(int noOfQuestions, int index){
+  return Container(
+    width: 170,
+    height: 50,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: (noOfQuestions == index) ? Colors.greenAccent : Colors.grey[900],
+    ),
+    child: Center(
+      child: Text('$noOfQuestions',
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget difficulty(String level){
+  return Container(
+    width: 120,
+    height: 50,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Colors.grey[900],
+    ),
+    child: Center(
+      child: Text(level,
+        style: const TextStyle(
+          letterSpacing: 2,
+          color: Colors.white,
+          fontSize: 16,
+        ),
+      ),
+    ),
+  );
+}
+
